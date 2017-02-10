@@ -1,0 +1,90 @@
+html {overflow-y:scroll;}
+body {margin:0; padding:0; font-family: "Microsoft YaHei";font-size:14px;background: #fff;color:#333;/*overflow:hidden;*/}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;}
+table{border-collapse:collapse;width:100%;}
+table,td,tr,th{font-size:12px;}
+ol,ul {list-style:none;}
+li{list-style-type:none;vertical-align:middle;}
+img{vertical-align:top;border:0;}
+h1,h2,h3,h4,h5,h6{font-size:inherit; font-weight:normal;}
+address,cite,code,em,th,i{font-weight:normal; font-style:normal;}
+.hx a,.hx em,.fB{font-weight:bold;}
+.clearfix{zoom:1;}
+.clearfix:after{display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:".";}
+a {color:#333; text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+input{outline:none;}
+
+/* 浮动属性 */
+.left,.l{float:left;}
+.right,.r{float:right;}
+.clr,.area,.pic-group,.pic-text{zoom:1}
+.clr:after{display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:".";}
+.show{display:block;}
+.hidden{display:none;}
+.clearfix:after{display:block; overflow:hidden; clear:both; height:0; visibility:hidden; content:".";}
+
+/*mainbody*/
+.mainbody{width:1200px;margin:0 auto;}
+
+/*font-size*/
+.f12{font-size: 12px;}
+.f14{font-size: 14px;}
+.f16{font-size: 16px;}
+.f18{font-size: 18px;}
+.f20{font-size: 20px;}
+.f22{font-size: 22px;}
+.f24{font-size: 24px;}
+.f26{font-size: 26px;}
+.f28{font-size: 28px;}
+select{
+	color:#666;
+	width:100px;
+	height:30px;
+	border:1px solid #ddd;
+	border-radius:0px;
+  	/* padding:0 14px 0 5px; */
+    appearance:none;
+    -moz-appearance:none;
+	/* -webkit-appearance:none; */
+    -ms-appearance:none;
+  	background: url(../img/arrow.png) no-repeat right 5px center;
+  	background:none \9;
+  	padding-right:0px \9 !important;
+}
+select::-ms-expand {display:none;}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: #c7c7c7;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #c7c7c7;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #c7c7c7;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #c7c7c7;
+}
+/*color*/
+.orange{
+	background:#e07a17;
+}
+.green1{
+	background:#34a490;
+}
+.blue{
+	background:#3c98d9;
+}
+.skygrren{
+	background:#71b45f;
+}
+.gray{
+	background:#dbdbdb;
+}
+input, textarea, button {
+    outline: none;
+    -webkit-appearance: normal;
+    appearance: none;
+    /* border: transparent; */
+}

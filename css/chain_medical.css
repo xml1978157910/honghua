@@ -1,0 +1,52 @@
+.main-wrap .reg-main .wrong-vertical .wrong{
+	margin-left:114px;
+	width:244px;
+}
+.main-wrap .reg-main .wrong-vertical .wrong1{
+	margin-left:114px;
+	width:244px;
+	display:none;
+}
+.main-wrap .reg-main .wrong-vertical .wrong em {
+    background: url(../img/cinic-ico.png) 0 -64px;
+    width: 16px;
+    height: 16px;
+    display: block;
+    float: left;
+    margin: -1px 6px 0px 4px;
+}
+.main-wrap .reg-main .clinic-yan .wrong{
+	margin-left:115px;
+	width:136px;
+}
+.main-wrap .page-main .retab a.clinci-jindu{
+	width:114px;
+	height:30px;
+	background:#3c98d9;
+	color:white;
+	border-radius:2px;
+	line-height:30px;
+	float:right;
+	font-size:14px;
+	border:0;
+}
+.reg_ul .reg_line {
+    position: absolute;
+    width: 6px;
+    height: 233px;
+    left: -30px;
+    top: -21px;
+    background: #efefef;
+    z-index:-1;
+}
+.main-wrap .reg-main li.reg_li{
+    min-height: 30px;
+    line-height: 30px;
+    margin-top: 22px;
+    position: relative;
+    padding-left: 17px;
+    margin-bottom: 0;
+    margin-left: 0;
+    float:none;
+    display: inline-block;
+}

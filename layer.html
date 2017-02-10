@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>医护提交信息</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" href="css/yhsubmit_msg.css" />
+		<link rel="stylesheet" href="css/cover.css" />
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="layer/layer.js"></script>
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="/css/oasismall.css">
+		<!--<link rel="stylesheet" href="js/skin/layer.css" />-->
+		<!--#include file="/include/header.html"-->
+		<p class="xian"></p>
+		<div class="warp">
+			<div class="center">
+				<div class="name">
+					<span></span>
+					<input type="text"  placeholder="真实姓名" class="truename"/>
+				</div>
+				<div class="hospital">
+					<span></span>
+					<input type="text" placeholder="所在医院" class="truehospital"/>
+				</div>
+				<div class="kes">
+					<span></span>
+					<input type="text"  placeholder="科室" class="truekes"/>
+				</div>
+				<div class="time">
+					<span></span>
+					<input type="text"  placeholder="从业年限" class="truetime"/>
+				</div>
+				<div class="zhic">
+					<span></span>
+					<input type="text"  placeholder="职称" class="truezhic"/>
+				</div>
+				<div class="btn">
+					提交
+				</div>
+			</div>
+		</div>
+		<div class="tc-hospital">
+			<div class="tch-top">
+				<span class="tch-citysearch">城市搜索：</span>
+				<select class="tch-province selProvince" id="">
+					<!--<option value="">北京市</option>-->
+				</select>
+				<select name="" class="tch-city selCity" id="">
+					<!--<option value="">朝阳区</option>-->
+				</select>
+				<span class="searchbtn">搜索</span>
+				<input type="text" class="searchinput"/>
+			</div>
+			<div class="tch-center">
+				<div class="tch-ctop clr">
+					<li class="bluecolor">全部</li>
+					<li>三甲</li>
+					<li>三乙</li>
+					<li>嗯嗯</li>
+					<li>测试</li>
+				</div>
+				<div class="tch-ccenter">
+					<div class="find_item">
+						<div class="hos_rank">三甲</div>
+						<div class="hos_name">
+							<li>北京航天医院</li>
+							<li>北京武警医院</li>
+						</div>
+					</div>
+					<div class="find_item">
+						<div class="hos_rank">三乙</div>
+						<div class="hos_name">
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+						</div>
+					</div>
+					<div class="find_item">
+						<div class="hos_rank">三乙</div>
+						<div class="hos_name">
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+						</div>
+					</div>
+					<div class="find_item">
+						<div class="hos_rank">三乙</div>
+						<div class="hos_name">
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+							<li>北京航天医院1111111111</li>
+							<li>北京武警医院1111111111</li>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tch-bottom">如列表中无您所在的医院，请手动添加+</div>
+		</div>
+
+		<!--医院的弹窗-->
+		<div class="ly-cover" style="display:none">
+			<p>
+				<span>医院名称</span>
+				<input type="text" />
+		    </p>
+			<p>
+				<span>医院地区</span>
+				<select class="tch-province layer-sheng selProvince" id="">
+					<!--<option value="">北京市</option>-->
+				</select>
+				<select name="" class="tch-city layer-sheng selCity" id="selCity">
+					<!--<option value="">朝阳区</option>-->
+				</select>
+			</p>
+			<p>
+				<span>医院等级</span>
+				<select name="" class="tch-city layer-dengji" id="">
+					<option value="">朝阳区</option>
+				</select>
+			</p>
+			<a class="layer-btn" href="javascript:void(0)">确定</a>
+		</div>
+		<!--#include file="/include/footer.html"-->	
+		<script src="js/jquery.easysearch.js"></script>
+		<script src="js/city1.js"></script>
+		<script>
+			$(function(){
+				//选择医院弹出窗
+				$(".truehospital").on("click",function(){
+					layer.open({
+					    type: 1,
+					    fix: false,
+					    title:false,
+					    shadeClose: true,
+					    area: ['900px', '685px'],
+					    content: $(".tc-hospital")   
+					})
+					sheng();
+				})
+				//医院弹窗
+				$(".tch-bottom").on("click",function(){
+					layer.closeAll('page');
+					layer.open({
+					    type: 1,
+					    fix: false,
+					    title:false,
+					    shadeClose: true,
+					    area: ['904px', '399px'],
+					    content: $(".ly-cover")   
+					})
+				})
+				//搜索医院
+				$(".searchinput").on("input",function () {
+		            var value = $(this).val();		            
+		            if(value != ""){
+		            	//console.log(value)
+		            	$(".hos_rank").hide();
+		            	$(".hos_name li").each(function () {
+			                $(this).hide();
+			                if ($(this).text().indexOf($.trim(value)) >= 0) {
+			                    $(this).show();
+			                }
+		            	});
+		            }else{
+		            	$(".hos_rank").show();
+		            	$(".hos_name li").show();
+		            }	            
+		       	});
+				
+				//点击提交
+				$(".submit_btn").click(function(){
+					var name = $(".truename").val()
+						stafftype = getparam().stafftype,
+						hospital = $(".truehospital").val(),
+						workdate = $(".trueytime").attr("id"),
+						deptid = $(".truekes").attr("deptid")||'',//科室id
+						mobile = getparam().telephone,
+						prof = $(".truezhic").attr("codeid"),//职称
+						clinicid = $(".truehospital").attr("clinicid") || '';//诊所id
+						//if()
+					$.post("/testback/NursAndDoctAccount/rstdoctor",'info={name:"'+name+'",stafftype:"'+stafftype+'",hospital:"'+hospital+'",workdate:"'+workdate+'",deptid:"'+deptid+'",mobile:"'+mobile+'",prof:"'+prof+'",clinicid:"'+clinicid+'"}',function(d){
+						console.log(d);
+						if(d.code=="0"){
+							//location.href = "download.html?type=2&telephone="+mobile;
+						}else if(d.code=="10003"){//填写姓名
+							alert(d.msg)
+						}else if(d.code=="10040"){//完善信息
+							alert(d.msg)
+						}
+						
+					})
+
+				})
+			})
+		</script>
+	</body>
+</html>

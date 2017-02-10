@@ -1,0 +1,131 @@
+.click-title{
+	padding:4px 10px;
+	font-size:16px;
+	color:white;
+	border-radius:2px;
+	margin-bottom:20px;
+}
+.clinic-map{
+	width:661px;
+	height:167px;
+	border:1px solid #ddd;
+	margin-left:91px;
+	margin-top:10px;
+}
+.main-wrap .reg-main ul.account_info li{
+	vertical-align:top;
+}
+.upload_item{
+	    margin: 5px 25px 0px 32px;
+}
+.main-wrap .reg-main ul.account_info li.clinic-yan{
+	margin-bottom:0;
+}
+.upload_more{
+	margin-bottom:0;
+}
+input[type="radio"]{
+	-webkit-appearance: none;
+	background:url(../img/radios1.png) no-repeat left center;
+	width:13px;
+	height:13px;
+}
+input[type="radio"]:checked{
+	background:url(../img/radios3.png) no-repeat left center;
+}
+.page-main{
+	position:relative;
+}
+
+.reg_line{
+	height:1020px;
+	left:20px;
+	z-index:-1;
+	top:73px;
+}
+.main-wrap .reg-main .wrong-vertical{
+	width:337px;
+}
+.main-wrap .reg-main .wrong-vertical .wrong{
+	margin-left:91px;
+}
+.upload_more{
+	margin-left:31px;
+}
+.clinic-load{
+	display:inline-block;
+	width:96px;
+	height:30px;
+	color:white;
+	text-align:center;
+	line-height:30px;
+	border-radius:2px;
+}
+.logo-img img{
+	display:inline-block;
+	width:33px;
+	height:33px;
+	border-radius:50%;
+}
+.logo-img span{
+	/*font-size:26px;*/
+}
+.main-wrap a.logo-img{
+	display:none;
+	text-align:center;
+}
+.upload_item .upload{
+	border-radius:50%;
+}
+input, button, textarea, select, optgroup, option{
+	font-size:12px;
+}
+.main-wrap .reg-main li select[name="opening_hours"]{
+	width:91px;
+}
+.main-wrap .reg-main li .checkbox-list{
+	width:461px !important;
+}
+.main-wrap .reg-main #clinicOpenTimeOther{
+	width:131px !important;
+	vertical-align:top;
+}
+.main-wrap .reg-main .wrong-vertical .wrong1{
+	margin-left:91px;
+	color: #FF5027;
+    text-align: left;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 4px 0px;
+    background: #fff2ef;
+    border: 1px solid #FF5027;
+    border-top: 0;
+}
+.cancel-cha,.shan-cha{
+	font-size:26px;
+	color:#b5b5b5;
+}
+.main-wrap .page-main .retab a.clinci-jindu{
+	width:114px;
+	height:30px;
+	background:#3c98d9;
+	color:white;
+	border-radius:2px;
+	line-height:30px;
+	float:right;
+	font-size:14px;
+	border:0;
+}
+.validation_vertical{
+	position:relative;
+}
+.main-wrap .reg-main .textare-input{
+	line-height: 16px;
+    height: 60px;
+    padding: 5px;
+    width:95%;
+}
+.map-error{
+	margin-left:91px;
+	color:red;
+}

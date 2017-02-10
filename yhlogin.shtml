@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>医护注册</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" href="css/yhlogin.css" />
+		<script src="js/jquery-1.10.2.js"></script>
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="/css/oasismall.css">
+		<!--#include file="/include/header.html"-->
+		<div class="yh-login">
+			<div class="yh-liginin">
+				<div class="yh-top">
+					<div class="yh-top1">
+						医护注册
+					</div>
+					<div class="yh-bottom">
+						<dl class="yh-nurse" stafftype="1006">
+							<dt class="changecolor">
+								<img src="img/yh_nursefff.png" alt="" />
+							</dt>
+							<dd>护士</dd>
+						</dl>
+						<dl class="yh-doctor" stafftype="1005">
+							<dt>
+								<img src="img/yh_doctor.png" alt="" />
+							</dt>
+							<dd>医生</dd>
+						</dl>
+					</div>
+					<div class="yh-top2">
+						<em></em>
+						<input type="tel" class="mobile" placeholder="请输入账号"/>
+					</div>
+					<div class="yh-top3">
+						<em></em>
+						<input type="tel" class="passcode" placeholder="请输动态密码"/>
+						<input type="button" class="getcode" value="获取验证码"/>
+					</div>
+					<div class="yh-top4">
+						<input type="checkbox" id="remember" checked/>
+						<label for="remember">记住账号</label>
+					</div>
+					<div class="yh-top5">
+						注&nbsp;&nbsp;册
+					</div>
+					<p class="tips"></p>
+				</div>
+			</div>
+		</div>			
+		<script>
+			$(function(){
+				var type = "";
+				if(getCookie("yhmobile")){
+					$(".mobile").val(getCookie("yhmobile"));
+				}
+				//点击获取验证码
+				$(".getcode").on("click",function(){
+					var telephone = $(".mobile").val();
+					type = $(".changecolor").parent().attr("stafftype");
+			  		var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+                	var panduan = reg.test(telephone);
+					if(panduan == false){
+	                   	if(telephone == ""){
+	                        $(".tips").text("请输入手机号")
+	                    }else{
+	                        $(".tips").text("请输入正确的手机号")
+	                    }
+	                }else{
+	                	$.get("/testback/NursAndDoctAccount/getcaptchaForRegister",'auth={}&info={mobile:"'+telephone+'",stafftype:"'+type+'"}',function(d){
+	    					console.log(d,"医护端发送验证码");
+	    					if(d.code == "0"){
+	    						getCaptcha();
+	    						//登录
+    							$(".yh-top5").on('click',function(){//stafftype:医护类型,invitemobile:使用的邀请手机号
+    								var captcha = $(".passcode").val();
+    								//setCookie("stafftype",type);
+    								if($("#remember").prop("checked")){
+    									setCookie("yhmobile",telephone);
+    								}
+	    							$.post("/testback/NursAndDoctAccount/checkCaptcha",'info={mobile:"'+telephone+'",captcha:"'+captcha+'",stafftype:"'+type+'",invitemobile:""}',function(d){
+	    								console.log(d,"医护登录");
+	    								if(d.code=="0"){
+	    									//console.log("医护注册成功")
+	    									location.href = "yhsubmit_msg.html?telephone="+telephone+"&stafftype="+type;
+	    								}else if(d.code=="1"){
+	    									$(".tips").text(d.msg);
+	    								}
+	    							})
+	    						})
+	    					}else if(d.code =="1"){
+								$(".tips").text(d.msg);//"手机号已被注册,请登录完善信息!"
+							}
+	    				})	
+					}
+	            })
+				function getCaptcha(){
+					$(".tips").text("");
+					var i = 60;
+					$(".getcode").attr("disabled","disabled");
+					var timer = setInterval(function(){
+						$(".getcode").val( i + "s") 
+						i--;
+						if( i == -1 ){
+							$(".getcode").removeAttr("disabled");
+							clearInterval(timer);
+							$(".getcode").val( "请重新获取") 
+						}
+					},1000)
+				}
+				
+				//切换医护
+				$(".yh-nurse dt").on("click",function(){
+					stafftype = $(this).attr("stafftype");
+					$(this).addClass("changecolor").find("img").prop("src","img/yh_nursefff.png");
+					$(".yh-doctor dt").removeClass("changecolor").find("img").prop("src","img/yh_doctor.png");
+					$(".yh-doctor dd").css("color","#ddd");
+					$(".yh-nurse dd").css("color","#52a2ed");
+				})
+				$(".yh-doctor dt").on("click",function(){
+					stafftype = $(this).attr("stafftype");
+					$(this).addClass("changecolor").find("img").prop("src","img/yh_doctorfff.png");
+					$(".yh-nurse dt").removeClass("changecolor").find("img").prop("src","img/yh_nurse.png");
+					$(".yh-nurse dd").css("color","#ddd");
+					$(".yh-doctor dd").css("color","#52a2ed");
+				})
+				
+				
+			})
+		</script>
+	</body>
+</html>

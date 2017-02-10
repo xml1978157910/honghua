@@ -1,0 +1,171 @@
+*{
+	margin:0;
+	padding:0;
+}
+body,html{
+	width:100%;
+	height:100%;
+	font-family: "微软雅黑";
+}
+ol,ul,li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+}
+.check_ts{
+	width:100%;
+	height:100%;
+}
+.ts_header{
+	width:1200px;
+	height:130px;
+	background:#fff url('../img/hongtitle.png') no-repeat left center;
+	margin:0 auto;
+}
+.ts_header img{
+	margin-top:36px;
+	margin-left:40px;
+}
+/*审核未通过*/
+.ts_nopass{
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+	padding-top:130px;
+	display:none;
+}
+.nopass_main{
+	width:514px;
+	height:142px;
+	margin:0 auto;
+}
+.no_left{
+	width:76px;
+	height:100%;
+	float:left;
+	background:url('../images/hhy_tanhao.png') no-repeat 0 30px;
+}
+.no_right{
+	width:400px;
+	height:100%;
+	float:right;
+}
+.no_right h5{
+	font-size:17px;
+	line-height:32px;
+}
+.yuanyin{
+	width:100%;
+	position:relative;
+	font-size:13px;
+	color:#999;
+}
+.yuanyin span{
+	position:absolute;
+	line-height:22px;
+	left:0;
+	top:0;
+}
+.yuanyin li{
+	width:100%;
+	line-height:22px;
+	padding-left:60px;
+}
+.ts_bottom{
+	width:100%;
+	line-height:36px;
+	font-size:12px;
+	margin-top:15px;
+}
+.information_btn{
+	width:150px;
+	height:36px;
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;
+	background:#fff;
+	border:1px solid #39a095;
+	color:#39a095;
+	margin-right:10px;
+	font-size:17px;
+}
+/*单一诊所*/
+.one_success{
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+	padding-top:130px;
+}
+.onesucc_main{
+	width:600px;
+	height:150px;
+	margin:0 auto;
+}
+.onesucc_left{
+	width:80px;
+	height:100%;
+	float:left;
+	background:url('../img/one_success.png') no-repeat 0 30px;
+}
+.onesucc_right{
+	width:490px;
+	height:100%;
+	float:right;
+}
+.onesucc_right h5{
+	font-size:17px;
+	line-height:32px;
+}
+.succ_leader{
+	color:#999;
+	font-size:13px;
+	line-height:22px;
+}
+.onecom{
+	width:150px;
+	height:36px;
+	display:inline-block;
+	text-align:center;
+	cursor:pointer;
+	line-height:36px;
+	background:#fff;
+	border:1px solid #39a095;
+	color:#39a095;
+	margin-right:5px;
+	font-size:17px;
+	margin-top:10px;
+}
+/*连锁诊所*/
+.more_success{
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+	padding-top:130px;
+	display:none;
+}
+.moresucc_main{
+	width:600px;
+	height:150px;
+	margin:0 auto;
+}
+.moresucc_bottom{
+	font-size:13px;
+}
+/*审核中*/
+.waiting_box{
+	width:1200px;
+	height:100%;
+	margin:80px auto 0 auto;
+	padding-top:130px;
+	display:none;
+}
+.wait_main{
+	width:430px;
+	height:80px;
+	margin:30px auto 0 auto;
+	background:url('../images/waitting.png')no-repeat;
+	line-height:80px;
+	font-size:18px;
+	padding-left:80px;
+}

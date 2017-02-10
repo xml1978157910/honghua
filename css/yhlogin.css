@@ -1,0 +1,164 @@
+			.yh-login{
+				width:100%;
+				height:895px;
+				background:#fff url(../img/zc_bg.png) no-repeat center center;
+				background-size:100% 100%;
+				min-width:1200px;
+			}
+			.yh-liginin{
+				width:1200px;
+				height:895px;
+				margin:0 auto;
+				overflow: hidden;
+			}
+			.yh-top{
+				width:380px;
+				height:484px;
+				margin:130px 0 0 820px;
+				background:#fff;
+				box-shadow: -4px 4px 4px -2px #ddd;
+			}
+			.yh-top em{
+				display: inline-block;
+				width:20px;
+				height:39px;	
+				float:left;			
+			}
+			.yh-top input{
+				font-size: 18px;
+				text-indent: 13px;
+			}
+			.yh-top1{
+				width: 100%;
+			    height: 90px;
+			    line-height: 90px;
+			    text-align: center;
+			    color: #333;
+			    font-size: 20px;
+			}
+			.yh-top2,.yh-top3{
+				width:314px;
+				height:40px;
+				border-bottom:1px solid #e0e0e0;
+				margin:0 auto;
+			}
+			.yh-top2 em{
+				background:url(../img/yhname.png) no-repeat center center;
+				background-size:20px 20px;
+			}
+			.yh-top2 input{
+				width:288px;
+				height:38px;
+				border:none;				
+			}
+			.yh-top3{
+				margin-top:24px;
+			}
+			.yh-top3 em{
+				background:url(../img/yhpass.png) no-repeat center center;
+				background-size:20px 20px;
+				float:left;
+			}
+			.yh-top3 .passcode{
+				width:177px;
+				height:38px;
+				float:left;
+				border:none;				
+			}
+			.yh-top3  .getcode{
+				display:block;
+				float:left;
+				width:116px;
+				height:40px;
+				line-height:38px;
+				text-align: center;
+				color:#aeb0b4;
+				background:none;
+				font-size: 18px;
+				border:none;
+				border-left:1px solid #eaeaea;
+				cursor: pointer;
+			}
+			.yh-top4{
+				width:314px;
+				height:56px;
+				margin:0 auto;
+				line-height:56px;
+			}
+			.yh-top4 #remember{
+				/*margin-top:20px;*/
+				-webkit-appearance: checkbox !important;
+				cursor: pointer;
+			}
+			.yh-top4 label{
+				color:#666666;
+				font-size:12px;
+				cursor: pointer;
+			}
+			.yh-top5{
+				width:316px;
+				height:46px;
+				background:#3ca9d7;
+				line-height:46px;
+				text-align: center;
+				font-size:18px;
+				color:#fff;
+				margin:0 auto;
+				border-radius: 1px;
+				cursor: pointer;
+			}
+			.yh-bottom{
+			    padding: 0px 78px;
+			    height: 130px;
+			}
+			.yh-bottom .yh-nurse{
+				width: 62px;
+			    height: 90px;
+			    float: left;
+			}
+			.yh-nurse dt,.yh-doctor dt{
+				width: 100%;
+			    height: 63px;
+			    border-radius: 49px;
+			    overflow: hidden;
+			    cursor: pointer;
+			    border:1px solid #ddd;
+			    border:1px solid #ddd;
+			}
+			.changecolor{
+				border:1px solid #52a2ed !important;
+			}
+			.yh-nurse dd{
+				width:100%;
+				height:50px;
+				text-align: center;
+				line-height:50px;
+				color:#52a2ed;
+				font-size: 18px;		
+			}
+			.yh-doctor dd{
+				width:100%;
+				height:50px;
+				text-align: center;
+				line-height:50px;
+				color:#ddd;
+				font-size: 18px;		
+			}
+			.yh-bottom .yh-doctor{
+				width: 62px;
+			    height: 90px;
+				float:right;
+			}
+			.yh-bottom img{
+				width: 40px;
+			    height: 42px;
+			    display: block;
+			    margin: 11px auto 0;
+			}
+			.tips{
+				width: 314px;
+			    margin: 0 auto;
+			    margin-top: 18px;
+			    color: red;
+			    font-size:18px;
+			}

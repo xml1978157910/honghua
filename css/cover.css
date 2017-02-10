@@ -1,0 +1,53 @@
+.ly-cover{
+	display:none;
+	width:904px;
+	height:144px;
+	background:white;
+	text-align:center;
+	padding:68px 0;
+	box-sizing:border-box;
+}
+.ly-cover p span{
+	color:#3ca9d7;
+	font-size:14px;
+	margin-right:14px;
+}
+.ly-cover p input{
+	width: 381px;
+    height: 43px;
+    display: inline-block;
+    border: none;
+    font-size: 18px;
+    border:1px solid #dbdbdb;
+    border-radius:2px;
+}
+.ly-cover p{
+	margin-bottom:18px;
+}
+.layer-btn{
+	width: 382px;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    background: #3ca9d7;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 9px;
+    border-radius: 3px;
+    cursor: pointer;
+    display:inline-block;
+    margin-left:53px;
+}
+.layer-sheng{
+	width:191px;
+	height:43px;
+	border-radius:2px;
+	color:#333;
+}
+.layer-dengji{
+	 width:381px;
+	 height:41px;
+}
+.hospitalname{
+	text-indent:10px;
+}

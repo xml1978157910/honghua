@@ -1,0 +1,73 @@
+/*预约*/
+.addtishi {
+    width: 247px;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    background: white;
+    z-index: 11;
+    overflow:auto;
+    display: none;
+    cursor: pointer;
+    border: 1px solid #dbdbdb;
+}
+.addtishi span {
+	display:inline-block;
+	padding:8px 5px;
+	box-sizing:border-box;
+	font-size:14px;
+	color:#525a66
+}
+.addul {
+	background:white
+}
+.addul li {
+	padding:8px 5px;
+	color:#888;
+}
+.main-wrap .reg-main .addul li{
+	line-height: normal;
+	margin-left:0;
+	margin-bottom:0;
+}
+.addul li em {
+	display:block;
+	font-size:14px;
+	color:#333;
+}
+.addul li i {
+	font-size:12px;
+	margin-top:9px;
+}
+.fourcen {
+	padding-bottom:75px
+}
+.fourshow {
+	background:url(../img/58clear.png) no-repeat center center;
+	background-size:22px 22px;
+	position:absolute;
+	right:0;
+	top:0;
+	bottom:0;
+	margin:auto;
+	display:block;
+	width:10%;
+	height:100%;
+	display:none;
+	cursor: pointer;
+}
+.covershow{
+	right: 13%;
+}
+.fouradd,.fourname {
+	width:100%
+}
+.fouradd {
+	padding-right:.5rem
+}
+.medshow{
+	right: 54%;
+}
+.medtishi{
+	left: 76px;
+}

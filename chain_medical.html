@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=11;IE=10;IE=9;IE=8;IE=7;" />
+<title>连锁医疗机构注册</title>
+<meta name="Keywords" content="泓华医疗" />
+<meta name="Description" content="泓华注册" />
+<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="js/jquery.placeholder.min.js" type="text/javascript"></script>
+<script src="js/layer.min.js" type="text/javascript"></script>
+<script src="js/ie.js" type="text/javascript"></script>
+<script src="js/validate.js" type="text/javascript"></script>
+<link href="css/register.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="css/chain_medical.css">
+</head>
+<body>
+<link href="css/common.css" rel="stylesheet" type="text/css"/>
+<link href="css/loginHead.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="/css/oasismall.css">
+<!--#include file="/include/header.html"-->
+<script type="text/javascript">
+	var dbid = '';
+	var pictureHttpPath = '';
+</script>
+<div class="main-wrap mainbody">
+  	<!-- tab切换 -->
+	<div class="page-main">
+		<div class="retab clearfix">
+		    <a href="clinic.html" class="chain">单体医疗机构入驻</a>
+		    <a href="chain_medical.html" class="tab_current">连锁医疗机构入驻</a>
+		    <a href="http://yun.oasisapp.cn:8080/yunhis/html/login/register.jsp" class="clinci-jindu">查看注册进度</a>
+		</div>
+	<div class="center-wrap register_main clearfix">
+		<!-- 左边 -->
+		<div class="reg-main red_main_left">
+			<span class="click-title yellow">企业资料</span>
+	    	<ul class="reg_ul">
+		        <li class="reg_li">
+		            <span class="left-til"><em>*</em>企业全称：</span>
+		            <input type="text" class=" text-input clinicData must-fill"  name="enterpriseFullName" id="enterpriseFullName" maxlength="50"  unitType="input" placeholder="请输入企业全称">                
+		        </li>
+		        <li class="reg_li">
+		            <span class="left-til"><em>*</em>企业证照号：</span>
+		            <input type="text" class="text-input clinicData must-fill"  name="enterpriseLicenseNo" id="enterpriseLicenseNo"  maxlength="50" unitType="input" placeholder="请输入企业证照号">
+		            
+		        </li>
+				<li class="license one-certificate reg_li">
+					<span class="left-til"><em>*</em>企业证照：</span>
+					<div class="upload_item upload_item1">
+	                  	<!-- <img id="eRegisterLicenseImg" name="enterpriseLicensePath" style="display:none;" class="clinicData must-fill" unitType="img"> -->
+	                    <a class="upload upload11"><input type="file" id="enterpriseInput" name="file" onchange="upload(this, 'license', 'eRegisterLicenseImg', 'headPic')" accept="image/*" style="position:relative;">
+	                    	<!-- <img id="imgShow" style="position:absolute;left:0;top:0;border-radius:50%;width:33px;height:33px;"> -->
+	                    </a>
+	                    <div class="upload_img"><span>企业证照</span></div>
+	                </div>
+	            </li>
+	            <div class="clear"></div>
+	            <div class="reg_line"></div>
+	    	</ul>
+	    	<div class="clear"></div>
+		    <p class="display:inline-block;"><span class="click-title blue">账户信息</span><em style="color:red;">（填写已有泓华医生/护士手机号或新的手机号作为入驻成功后的登录账号）</em></p>
+		    <ul class="reg_ul">
+			    <li class="reg_li">
+			        <span class="left-til"><em>*</em>手机号码：</span>
+					<input type="text" class="must-fill phone-input text-input ../img" id="telphone" maxlength="11" placeholder="请输入手机号码" >
+					<span class="pass-right" style="display:none"></span>
+					<div class="wrong-vertical">
+						<div class="wrong" style="display:none"><em></em>手机号码格式不正确</div>
+					</div>
+			    </li>
+			    <li class="reg_li">
+		            <span class="left-til"><em>*</em>真实姓名：</span>
+		            <input type="text" class="text-input clinicData must-fill" id="txtuserName" maxlength="10" placeholder="中文或英文" unitType="input">
+		            <span class="pass-right"></span>
+		            <div class="wrong-vertical">
+		            	<div class="wrong1"><em></em>用户名格式不正确</div>
+		            </div>
+		        </li>
+		        <li class="clinic-yan reg_li">
+		        	<span class="left-til"><em>*</em>验证码：</span>
+						<input type="text" class="must-fill text-input width-short" id="phone-code" maxlength="4" placeholder="请输入短信验证码" >
+						<button class="send-code" id="send-code">获取验证码</button>
+						<div class="wrong-vertical">
+							<div class="wrong wrongmsg" style="display:none"><em></em>短信验证码不正确</div>
+						</div>
+						<div class="send-float">
+							<div class="pass" style="display:none" id="send-success"><em></em>验证码发送到您手机，请注意查收</div>
+						</div>
+		        </li>
+		        <li class="reg_li">
+		            <span class="left-til"><em>*</em>密码：</span>
+		            <input type="password" class="clinicData must-fill text-input" id="password" name="password"  maxlength="16" placeholder="6－16位数字字母或者特殊符号的组合" unitType="input" validatetype="password">
+		            <span class="pass-right"></span>
+		            <div class="wrong-vertical">
+		                <div class="wrong" style="display:none"><em></em>密码格式不正确</div>
+		            </div>
+		        </li>
+				<div class="clear"></div>
+			</ul>
+			<div class="clear"></div>
+			<div class="footer_btn">
+				<p class="xieyi">
+					<label class="reg-rule-radio reg-rule-radio1"><input type="checkbox" id="reg-rule" class="zsxz-radio" name=""></label>
+					<a id="reg-agree" style="cursor: pointer;">同意"服务条款"和"用户须知"、"隐私权相关政策"</a>
+				</p>
+				<p><span type="text" class="submitbtn">接受协议并注册</span></p>
+			</div>
+			</div>
+			<!-- 右边 -->
+			<div class="side-info">
+				<div class="process">
+					<h2>注册流程</h2>
+					<ul>
+						<li><span class="item_dot"></span>提交医疗机构信息</li>
+						<li><span class="item_dot"></span>泓华医疗云诊所资质审核(3个工作日内)</li>
+						<li><span class="item_dot"></span>审核通过,并发送短信给医疗机构管理人</li>
+						<li><span class="item_dot"></span>医疗机构成功上线</li>
+					</ul>
+				</div>
+				<div class="common-questions">
+						<h2 class="clinic-img2">常见问题</h2>
+						<ul>
+							<li>
+								<h3>1.入驻泓华云诊所收取平台入驻费吗？ </h3>
+								<p class="desc_list"><span class="item_dot"></span>免费</p>
+							</li>
+							<li>
+								<h3>2.入驻泓华云诊所对医疗机构有什么好处？ </h3>
+								<p class="desc_list"><span class="item_dot"></span>泓华云诊所是一个国际化的医疗云平台，汇集国内外医疗机构及名医专家，服务全国千万用户，可为入驻的医院/诊所带来更多潜质客户，增强曝光率。同时云诊所可助于医院/诊所实现标准化信息管理，提升诊所服务口碑和生意。</p>
+							</li>
+							<li>
+								<h3>3.泓华云诊所平台需要下载安装吗？</h3>
+								<p class="desc_list"><span class="item_dot"></span>该平台是WEB版本，不需下载安装，注册、通过审核后可直接使用。并且电脑、平板等设备均适用，更加方便您的工作，提高工作效率。</p>
+							</li>
+						</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 用户协议弹窗 -->
+	<div id="protocol">
+    	<div class="title clearfix"><p>医疗机构用户注册协议</p><a href="javascript:" class="close" id="ou_dtgb">X</a></div>
+   		<div class="pop_bd" style="overflow: hidden;">
+           	<div class="clause_wrap">
+                <div class="clause_box" id="regprotocolContent">
+                <p class="sc_con">本协议是<b class="sc_list">医疗机构</b>与<b class="sc_list">泓华国际医疗控股（集团）有限公司创建的泓华医疗平台（以下简称：“泓华”）</b>就医疗机构注册、使用泓华服务平台所订立的协议。请医疗机构在申请成为泓华服务平台注册用户之前，仔细阅读<b class="sc_list">本协议及附件</b>的全部内容<b class="sc_list">（特别是以粗体标注的内容），如医疗机构对本协议的任何条款有异议，请不要继续注册操作。 </b>
+                	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;医疗机构在注册过程中，根据声音、文字或图形提示<b class="sc_list">点选“同意”按钮的，即视为医疗机构已仔细阅读本协议的全部内容，并同意接受本协议项下的所有条款之约束。 </b>
+                	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在医疗机构申请成为泓华服务平台注册用户后，泓华仍有权修改本协议相关服务条款并在平台予以公示。如果用户不同意修改后的服务条款，应当立即停止使用泓华提供的服务，并注销账号。<b class="sc_list">如果用户继续使用泓华提供的服务，则表示用户对修改后相关服务条款予以接受。 </b>
+               		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b class="sc_list">泓华服务平台：</b>包括但不限于泓华云诊所网站平台、泓华医疗网站平台、移动客户端（APP）及其他现在或将来推出的基于泓华提供相关服务的平台，以下统称“平台”。
+               	</p>
+                <p class="sc_list">（一）平台注册规范</p>
+				<p class="sc_con">
+					<b class="sc_list">1.1 申请注册条件</b>
+					<br>1.1.1医疗机构申请成泓华服务平台注册用户，须满足以下条件： 
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) 已依照中华人民共和国法律注册并领取合法有效的营业执照及其他经营许可； 
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) 相关医疗资质、手续齐备，《医疗机构执业许可证》以及《医生执业资格证》等证照合法、有效； 
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3）有与业务规模相匹配的诊疗人员及诊疗设备；
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4）近1年无医疗主管部分的违规处罚记录。 
+					<br><b class="sc_list">1.2 证明文件提交 </b>
+					<br>1.2.1 医疗机构应根据本协议向泓华提交证明文件或其他相关证明，包括但不限于《医疗机构执业许可证》、医疗机构所在地监管规范要求的资质证明及其他泓华认为需要的证明资料。 
+					<br>1.2.2 医疗机构保证向泓华提供的上述证明文件或其他相关证明<b class="sc_list">真实、合法、准确、有效</b>，并保证上述证明文件或其他相关证明发生任何变更时，将及时通知泓华。<b class="sc_list">否则，若因医疗机构提交虚假、过期文件或未及时更新或通知导致纠纷或被相关国家机关处罚的，由医疗机构承担全部法律责任。 </b>
+					<br>1.3医疗机构申请注册，应遵守法律法规、社会主义制度、国家利益、公民合法权益、公共秩序、社会道德风尚和信息真实性等“七条底线” 
+					<br>1.4医疗机构申请注册的用户名和昵称中不能含有威胁、淫秽、侮辱及谩骂等其他侵害他人正当权益的内容。
+				</p>
+				<p class="sc_list">（二）平台使用规范</p>
+				<p class="sc_con">
+					<b class="sc_list">2.1 医疗机构在使用注册账号时，不得有下列行为： </b>
+					<br>2.1.1违反宪法或法律规定；
+					<br>2.1.2危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一； 
+					<br>2.1.3损害国家荣誉和利益，损害公共利益；
+					<br>2.1.4煽动民族仇恨、民族歧视，破坏民族团结；
+					<br>2.1.5破坏国家宗教政策，宣扬邪教和封建迷信； 
+					<br>2.1.6散布谣言，扰乱社会秩序，破坏社会稳定；
+					<br>2.1.7散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪；
+					<br>2.1.8侮辱或者诽谤他人，侵害他人合法权益；
+					<br>2.1.9含有法律、行政法规禁止的其他内容。
+					<br><b class="sc_list">2.2医疗机构应保证在平台上发布信息的真实性、合法性和有效性。</b>不得发布任何侵犯他人著作权、商标权等知识产权或合法权利的内容；不得发布任何违反《广告法》或构成不正当竞争行为的内容；<b class="sc_list">医疗机构须对发布在平台上的任何言论和行为承担全部法律责任。 </b>
+					<br>2.3医疗机构不得利用泓华合作医疗机构身份进行任何违反诚信的行为，包括但不限于：炒作医疗机构，并向患者输送利益；为获得利益或好处，参与或组织撰写及发布虚假信息；明示或暗示患者或通过其他作弊方式给予虚假评价；进行其他其它影响信息真实性、客观性、扰乱平台正常秩序的违规行为。 
+					<br>2.4医疗机构应对在使用泓华提供的服务过程中所获知的各项信息，包括但不限于用户数据、患者数据、运营数据、财务信息、商业信息、商业模式等（合称“保密信息”）承担严格的保密义务，直至保密信息进入公共领域时止。 
+					<br>2.5医疗机构应及时关注并遵守平台上不时公布或修改的各类合法规则规定。
+				</p>
+				<p class="sc_list">（三）医疗机构授权</p>	
+				<p class="sc_con">
+					<b class="sc_list">医疗机构完全理解并不可撤消的授予泓华如下权利：</b>
+					<br>3.1泓华有权将其审核通过的医疗机构名称、性质、类型、资质证明资料、地址、联系人、联系电话、营业时间、医疗团队、医疗资源及诊疗优势等相关信息在本平台上予以发布、展示，以供患者进行浏览及查阅。 
+					<br>3.2泓华有权在宣传资料（包括但不限于网页、APP、视频、图像、印刷资料等）中使用医疗机构的名称、商标、标识、医疗机构宣传资料（包括图片或视频）或者其他类似文字和图形，以宣示医疗机构为泓华的注册用户。 
+					<br><b class="sc_list">3.3泓华有权利用平台数据并结合患者的评价对医疗机构进行评级或认证。</b>
+					<br>3.4泓华有权通过短信、邮件、电话或其他形式向医疗机构传送平台提供的服务信息及其他相关商业信息。
+					<br><b class="sc_list">3.5除法律另有规定之外，泓华有权将医疗机构提供给泓华的信息、享受泓华服务产生的信息以及泓华根据本协议提供相应服务查询、收集的信息，用于泓华及其因服务必要委托的合作伙伴为医疗机构提供服务、推荐产品、开展市场调查与信息数据分析。为确保医疗机构信息的安全，泓华及其合作伙伴对上述信息负有保密义务，并采取各种措施保证信息安全。</b>
+					<br><b class="sc_list">3.6泓华有权保留并使用医疗机构在平台上的历史服务数据。即使泓华已经暂停、终止向医疗机构继续提供服务。 </b>
+					<br><b class="sc_list">3.7泓华有权在自营或实际控制的任何网站上公示医疗机构的违约情况（即违反本协议或与泓华达成的其他协议约定）。</b>
+				</p>	
+				<p class="sc_list">（四）医疗机构诊疗规范</p>	
+				<p class="sc_con">
+					4.1医疗机构在给患者进行诊疗过程中应当严格执行“首诊负责制”和“因病施治”的原则，做到合理检查、合理治疗、合理用药，并不断提高医疗服务质量。 　
+					<br>4.2医疗机构应当坚持“以病人为中心”的服务准则，热心为患者服务；<b class="sc_list">患者投诉医疗机构或医疗机构工作人员服务问题（包括服务态度）并经泓华查证属实的，泓华有权依据本协议相关条款规定，追究医疗机构的法律责任。</b>
+					<br>4.3医疗机构应当妥善保管患者就诊记录，就诊记录应当清晰、准确、完整，并妥善保存备查。<b class="sc_list">后期泓华运营管理系统上线后，泓华有权要求医疗机构配合接入使用，并及时准确录入相关诊疗数据。 </b>
+					<br>4.4若患者在医疗机构就诊发生医疗事故的，<b class="sc_list">则医疗机构应当在事故发生之日起3日内通知泓华。 </b>
+					<br><b class="sc_list">4.5患者因接受医疗机构发布信息或提供的服务而引起的纠纷，由医疗机构直接负责解决并承担相应的法律责任，泓华对此不承担任何形式的法律责任。</b>如因医疗机构发布的信息或提供的服务问题而引发患者要求泓华承担赔偿责任或遭受诉讼的，则泓华有权披露医疗机构为实际服务提供商，医疗机构应当承担泓华因患者诉讼而产生的全部法律责任。 
+					<br><b class="sc_list">4.6医疗机构应严格审核并确保旗下所有医疗从业人员的资质及服务行为均符合法律法规及政策的规定，否则医疗机构应承担相应的法律责任。</b>
+				</p>
+				<p class="sc_list">（五）免责条款</p>	
+				<p class="sc_con">
+					5.1鉴于网络服务的特殊性，泓华不对医疗机构所发布信息的删除或储存失败负责。同时，泓华不承诺网络服务一定能满足医疗机构的要求，也不承诺网络服务不会中断，<b class="sc_list">对网络服务的及时性、稳定性不作任何承诺。 </b>
+					<br>5.2<b class="sc_list">泓华需要定期或不定期地对提供网络服务的平台或相关的设备进行检修和维护</b>，如因此类情况而造成网络服务中断的，则泓华无需为此向医疗机构承担任何责任，但会尽可能事先进行通告。
+					<br>5.3泓华基于经营需要，<b class="sc_list">无需征得医疗机构同意即有权不定期对平台服务内容、版面布局、页面设计等进行调整</b>，且不承担任何责任。（泓华与医疗机构就相关展位另行单独签署协议的除外） 
+					<br>5.4泓华积极采用数据备份加密等措施保障医疗机构数据的安全，但不对因意外因素（包括但不限于黑客攻击等）导致的数据损失和泄漏负责。同时，对于因台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力因素或泓华不能控制的原因（包括但不限于电信部门技术调整或故障等甲方无法预见的原因等）造成的网络服务中断或其它缺陷，泓华不承担任何责任，但将尽力减少因此而给医疗机构造成的损失和影响。 
+					<br><b class="sc_list">5.5在任何情况下，泓华对于医疗机构因本协议引起的任何间接的、惩罚性的、特殊的及派生的损失（包括业务损失、收益损失、利润损失、商誉损失、使用数据或其他经济利益的损失），均不负有任何责任，即使事先已被告知此等损失的可能性。 </b>
+					<br><b class="sc_list">5.6泓华工作人员，只在经泓华盖章的合同或文件中，享有代表泓华的有限代理权。未经泓华盖章认可的行为均属个人行为，泓华不予承认并不承担由此产生的任何法律责任。</b>
+				</p>
+				<p class="sc_list">（六）知识产权保护</p>	
+				<p class="sc_con">
+					<b class="sc_list">6.1 医疗机构接受本协议，即表明医疗机构主动将其在任何时间段在平台发表的任何形式的信息的著作财产权</b>包括并不限于：复制权、发行权、出租权、展览权、表演权、放映权、广播权、信息网络传播权、摄制权、改编权、翻译权、汇编权等，以及应当由著作权人享有的其他可转让权利无偿独家转让给泓华，同时表明医疗机构许可泓华有权利就任何主体侵权而单独提起诉讼，并获得全部赔偿。
+					<br>6.2除平台内转载的属于第三方所发布的信息之外，平台内的所有内容、资源及其他信息（包括但不限于文字、图像、图片、照片、音频、视频、图表、色彩、版面设计、电子文档）的所有知识产权（包括但不限于版权、商标权、专利权、商业秘密等）及相关权利，均归泓华所有。未经泓华许可，医疗机构不得擅自使用（包括但不限于复制、传播、展示、镜像、上载、下载）。
+					<br><b class="sc_list">6.3泓华的企业名称、字号、商标、平台的Logo（包括文字、图形及其组合等）、互联网域名以及平台的其他标识、产品和服务名称均为泓华所有。未经泓华书面授权，医疗机构不得以任何方式展示、使用、许可他人使用或作其他处理。</b>
+				</p>	
+				<p class="sc_list">（七）法律责任及管辖</p>	
+				<p class="sc_con">
+					<b class="sc_list">7.1医疗机构违反本协议约定的，则泓华有权采取一切必要的措施，包括但不限于：暂停、终止向医疗机构提供服务等。如因此给泓华、合作方及患者造成损失的，医疗机构应予以全额赔偿（包括但不限于：案件受理费、案件处理费、保全费、鉴定费、评估费、执行费、律师费、差旅费等）。</b>
+					<br>7.2本协议之效力、解释、执行和争议的解决均适用中华人民共和国之法律。如本协议之任何一部分与中华人民共和国法律相抵触，则该部分条款应按有关法律规定重新解释，部分条款之无效或重新解释不影响其它条款之法律效力。 
+					<br>7.3因履行本协议所产生的纠纷，双方应协商解决。<b class="sc_list">协商不成，任何一方应将争议提交上海国际仲裁中心裁决。</b>
+				</p>
+				<p class="sc_list">（八）其他规定</p>	
+				<p class="sc_con">
+					8.1本协议构成双方对约定事项及其他有关事宜的完整协议，除本协议规定的之外，未赋予本协议各方其他权利。
+					<br><b class="sc_list">8.2本协议项下泓华对于医疗机构所有的通知均可通过网页公告、电子邮件、手机短信或常规的信件传送等方式进行；该等通知于发送时即视为已送达给医疗机构。 </b>
+					<br>8.3本协议中的标题仅为方便而设，不作为对标题下条款的解释。
+				</p>
+				<br>
+				<p class="sc_list">附：泓华服务平台简介</p>
+				<p class="sc_con">
+					1. 泓华将向医疗机构提供平台技术服务，尽力维护平台的正常稳定运行，并努力提升和改进技术，对功能及服务进行更新、升级，不断提升平台性能和合作效率。 
+					<br>2. 泓华将结合平台优势对医疗机构的团队、品牌、诊疗项目、设备环境、诊疗优势、各项医疗特色等进行多方位的展示服务，以便患者能够便捷的进行网上查询和浏览。 
+					<br>3. 泓华将提供一个开放的、透明的、可信赖的相互交流的医疗平台，医生/护士可自主执业，便于医疗机构和患者之间、医生与患者直接、医疗机构相互之间进行多方面的沟通。
+					<br>4. 泓华将利用平台数据结合患者的评价向医疗机构提供优化建议。并对符合泓华认证条件的医疗机构提供专项的认证服务，并提供更好的技术指导及后期的认证管理服务。
+				</p>
+                </div>
+           </div>
+           <div class="pop_btn">
+               <a href="javascript:;" class="agree" id="checkTos">已阅读并同意协议</a>
+           </div>
+       </div>
+	</div>
+	<div class="transparent_bg"></div>
+</div>
+<!--#include file="/include/footer.html"-->		
+<script src="js/validateCode.js" type="text/javascript"></script>
+<script src="js/pop.js" type="text/javascript"></script>
+<script src='js/imgload/jquery.form.js' type='text/javascript'></script>
+<script src='js/imgload/loading.js' type='text/javascript'></script>
+<script src='js/imgload/ajaxSubmitFile-1.0.min.js' type='text/javascript'></script>
+<script src="js/register.js"></script>
+<script type="text/javascript">
+var opts = {},urll;
+opts.isGetData = true;
+opts.unitAry = ['input','select','radio','img','span'];
+initFileUpload("enterpriseInput");//图片上传
+// 图片上传
+function initFileUpload(id) {
+	var a ="/testback/userAccount/uploadImg.htm";
+	$("#" + id).submitFile({
+		action : a,
+		zindex : 0,
+		type : "text",
+		success : function(url, obj) {
+			//console.log(obj)
+			$(".upload").append('<img id="imgShow" style="position:absolute;left:0;top:0;border-radius:50%;width:33px;height:33px;" src="'+url+'" value="'+url+'">')
+			/*$("#imgShow").attr("src", url);
+			$("#imgShow").attr("value", url);*/
+			removeLoad();
+		}
+	});
+}
+//真实姓名input
+$("#txtuserName").focus(function(){
+	$(".wrong1").hide();
+})
+var timer = null,
+	timeIndex = 60;
+var yzm;
+//获取验证码
+$("#send-code").on("click",function(){
+	var mobile = $("#telphone").val();
+	var res = /^1[34578][0-9]{9}$/;
+		if(mobile == ""){
+			$("#telphone").addClass("txt-error");
+		}else if(res.test(mobile) == false){
+			$("#telphone").addClass("txt-error");
+			$("#telphone").siblings().find(".wrong").show();
+		}else{
+			$("#telphone").removeClass("txt-error");
+			$("#telphone").siblings().find(".wrong").hide();
+		}
+	if($("#telphone").hasClass("txt-error")){
+		   return false;
+	}else{
+		$("#send-code").text(timeIndex+"s");
+	    info();
+		$.post('/testback/registerclinic/sendCodeByClinic','mobile={mobile:"'+mobile+'",type:"2"}',function(data){
+			console.log(data);
+			if(data.code == 1){
+				$('#phone-code').addClass("txt-error");
+		        $(".wrongmsg").html("<em></em>"+data.msg+"");
+				$(".wrongmsg").show();
+			}
+		});	
+	}
+}) 
+// 定时器
+function info(){
+	timer=setInterval(function(){ 
+		timeIndex--;
+		$("#send-code").text(timeIndex+"s");
+		$("#send-code").attr("disabled",true);
+		if(timeIndex<1){
+			timeIndex = 60;
+			$("#send-code").text("重新获取");
+			$("#send-code").attr("disabled",false);
+			clearInterval(timer);
+		}
+	},1000);
+}
+//协议弹窗
+	$("#reg-agree").click(function(){
+		$("#protocol,.transparent_bg").show();
+    });
+	$("#ou_dtgb").click(function(){
+    	$("#protocol,.transparent_bg").hide();
+    });
+	$("#checkTos").click(function(){
+		$("#reg-rule").prop("checked", true);
+    	$("#protocol,.transparent_bg").hide();
+    });
+
+//接受协议并注册按钮
+$(".submitbtn").on("click",function(){
+	var rex = /^([A-Za-z]|[\u4E00-\u9FA5])+$/;//中文或英文的验证
+	var qy_name = $("#enterpriseFullName").val(),//企业全称
+		qy_card = $("#enterpriseLicenseNo").val(),//企业证照号
+		qy_person = $("#txtuserName").val(),//真实姓名
+		qy_mobile = $("#telphone").val(),//手机号码
+		qy_password = $("#password").val(),//密码
+		qy_file = $("#imgShow").attr("src"),//图片路径
+		qy_yz = $("#phone-code").val();//验证码
+		var checkbox = $("#reg-rule").prop("checked");//复选框
+	if(rex.test(qy_person)==false){
+		$(".wrong1").css("display","block");
+		$("#txtuserName").addClass("txt-error");
+	}else{
+		$(".wrong1").css("display","none");
+		$("#txtuserName").removeClass("txt-error");
+	}
+	if(qy_file){
+		$(".upload_item").removeClass("txt-error");
+	}else{
+		$(".upload_item").addClass("txt-error");
+	}
+	if($("#enterpriseFullName").val()==""){
+		$("#enterpriseFullName").addClass("txt-error");
+	}else{
+		$("#enterpriseFullName").removeClass("txt-error");
+	}
+	if($("#enterpriseLicenseNo").val()==""){
+		$("#enterpriseLicenseNo").addClass("txt-error");
+	}else{
+		$("#enterpriseLicenseNo").removeClass("txt-error");
+	}
+	if(checkbox == false){
+		$(".xieyi").addClass("txt-error");
+	}else{
+		$(".xieyi").removeClass("txt-error");
+	}
+	if( $(".txt-error").length == 0 && checkbox == true ){
+		console.log(qy_yz,qy_name,qy_card,qy_person,qy_mobile,qy_password,qy_file);
+		$.post('/testback/registerclinic/registersclinic','info={captcha:"'+qy_yz+'",name:"'+qy_name+'",credentialscard:"'+qy_card+'",leadingperson:"'+qy_person+'",leadingmobile:"'+qy_mobile+'",password:"'+qy_password+'",credentialsfile:"'+qy_file+'"}',function(d){
+				console.log(d);
+			if(d.code==0){
+				location.href="check_ts.html";
+			}else{
+				$('#phone-code').addClass("txt-error");
+		        $(".wrongmsg").html("<em></em>验证码错误");
+				$(".wrongmsg").show();
+			}
+		});
+	}
+});
+</script>
+</body>
+</html>

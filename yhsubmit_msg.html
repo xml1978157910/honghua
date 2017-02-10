@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>医护提交信息</title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" href="css/yhsubmit_msg.css" />
+		<link rel="stylesheet" href="css/cover.css" />
+		<!--<link rel="stylesheet" href="css/keshi.css" />-->
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="layer/layer.js"></script>
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="/css/oasismall.css">
+		<!--#include file="/include/header.html"-->
+		<p class="xian"></p>
+		<div class="warp">
+			<div class="center">
+				<div class="name">
+					<span></span>
+					<input type="text"  placeholder="真实姓名" class="truename" onkeyup="value=value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,''))"/>
+				</div>
+				<div class="hospital">
+					<span></span>
+					<input type="text" placeholder="所在医院" class="truehospital"/>
+				</div>
+				<div class="kes">
+					<span></span>
+					<input type="text"  placeholder="科室" class="truekes"/>
+				</div>
+				<div class="time">
+					<span></span>
+					<input type="text"  placeholder="从业年限" class="truetime"/>
+				</div>
+				<div class="zhic">
+					<span></span>
+					<input type="text"  placeholder="职称" class="truezhic"/>
+				</div>
+				<div class="btn">
+					提交
+				</div>
+			</div>
+		</div>
+		<!--添加医院弹层-->
+		<div class="tc-hospital">
+			<div class="tch-top">
+				<span class="tch-citysearch">城市搜索：</span>
+				<select class="tch-province selProvince" id="">
+					<!--<option value="">北京市</option>-->
+				</select>
+				<select name="" class="tch-city selCity" id="">
+					<!--<option value="">朝阳区</option>-->
+				</select>
+				<span class="searchbtn">搜索</span>
+				<input type="text" class="searchinput"/>
+			</div>
+			<div class="tch-center">
+				<div class="tch-ctop clr">
+					<!--<li class="bluecolor">全部</li>-->
+					<!--<li>三甲</li>
+					<li>三乙</li>
+					<li>嗯嗯</li>
+					<li>测试</li>-->
+				</div>
+				<div class="tch-ccenter">
+					<div class="tch-ccenterin"></div>	
+				</div>
+			</div>
+			<div class="tch-bottom">如列表中无您所在的医院，请手动添加+</div>
+		</div>
+		<!--手动添加医院的弹窗-->
+		<div class="ly-cover">
+			<p>
+				<span>医院名称</span>
+				<input type="text" class="hospitalname" onkeyup="value=value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,''))"/>
+		    </p>
+			<p>
+				<span>医院地区</span>
+				<select class="tch-province layer-sheng selProvince" id="">
+					<!--<option value="">北京市</option>-->
+				</select>
+				<select name="" class="tch-city layer-sheng selCity" id="selCity">
+					<!--<option value="">朝阳区</option>-->
+				</select>
+			</p>
+			<p>
+				<span>医院等级</span>
+				<select class="layer-dengji">
+					<!--<option value="">朝阳区</option>-->
+				</select>
+			</p>
+			<a class="layer-btn" href="javascript:void(0)">确定</a>
+		</div>
+		<!--添加科室弹层-->
+		<div class="tc-keshi">
+			<div class="tck-center">
+				<div class="tck-ctop clr">
+					<!--<li class="bluecolor">全部</li>-->
+					<!--<li>三甲</li>
+					<li>三乙</li>
+					<li>嗯嗯</li>
+					<li>测试</li>-->
+				</div>
+				<div class="tck-ccenter">
+					<div class="tck-ccenterin">
+						
+					</div>	
+				</div>
+			</div>
+			<div class="tck-bottom ks_add">如没有您所在科室，请手动添加+</div>
+		</div>
+		<!--手动添加科室-->
+		<div class="addnewkeshi">
+			<select class="peopleaddnewks"></select>
+			<input type="text"  class="newinput" placeholder="请输入您的科室" onkeyup="value=value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\a-zA-Z\u4E00-\u9FA5]/g,''))"/>
+			<input type="button" class="addkeshibtn" value="确定"/>
+		</div>
+		<!--从业年限弹层-->
+		<div class="woketime" >
+			<!--<li>我是新手</li>
+			<li>111111</li>
+			<li>22222</li>
+			<li>333333</li>
+			<li>4444444</li>-->
+		</div>
+		<!--职称弹层-->
+		<div class="zhicheng">
+			
+		</div>
+		<!--#include file="/include/footer.html"-->	
+		<script src="js/jquery.easysearch.js"></script>
+		<script src="js/city1.js"></script>
+		<script>
+			$(function(){
+				var stafftype = getparam().stafftype;
+				//选择医院弹出窗
+				$(".truehospital").on("click",function(){
+					layer.open({
+					    type: 1,
+					    fix: false,
+					    title:"选择医院",
+					    shadeClose: true,
+					    area: ['900px', '706px'],
+					    content: $(".tc-hospital")   
+					})
+					//layer.closeAll('page');//关闭弹窗
+					sheng();
+					hospCode();
+				});
+				sheng();
+				hospCode();
+				//渲染医院
+				function hospCode(){
+					var areacode = $(".tch-city").val() || $(".tch-city").attr("data");
+					//console.log(areacode,"地区code");
+					$.post("/testback/clinic/getClinicByAreaIsself",'info={areacode:"'+areacode+'",isself:"0"}',function(d){
+						//console.log("医院",d);
+						$(".tch-ccenterin").empty();
+						$(".tch-ctop").empty();
+						$(".tch-ctop").append('<li class="bluecolor">全部</li>');
+						$.each(d.dataList,function(i,obj){	
+							$(".tch-ctop").append('<li id="'+obj.id+'">'+obj.name+'</li>');
+							$(".tch-ccenterin").append(
+							'<div class="find_item">'+
+								'<div class="hos_rank" id="'+obj.id+'">'+obj.name+'</div>'+
+								'<ul class="hos_name"></ul>'+
+							'</div>'
+							)
+							for(var j=0;j<obj.clinics.length;j++){	
+								$(".hos_name").eq(i).append('<li clinicid="'+obj.clinics[j].clinicid+'">'+obj.clinics[j].name+'</li>');
+							}
+						})
+						changeRank();
+						changeCity();
+					})				
+				}
+				//选择医院里的选择等级
+				function changeRank(){
+					$(".tch-ctop li").on("click",function(){
+						$(this).addClass('bluecolor').siblings().removeClass("bluecolor");
+						var id = $(this).attr("id");
+						console.log(id)
+						for(var i=0;i<$(".hos_rank").length;i++){
+							if(id == $(".hos_rank").eq(i).attr("id")){
+								var h = $(".hos_rank").eq(i).offset().top;
+								var hh = $(".tch-ccenterin").offset().top;
+								var cha = h - hh;
+								console.log(h,hh,cha)
+								$('.tch-ccenter').animate({
+									scrollTop: cha
+								}, 500);
+							}
+						}
+					})
+				}
+				//选择医院
+				function changeCity(){
+					$(".hos_name li").on("click",function(){
+						var clinicid = $(this).attr('clinicid');
+						$(".truehospital").attr("clinicid",clinicid);
+						$(".truehospital").val($(this).text());
+						layer.closeAll('page');//点击关闭
+						$(".truekes").val("");
+					})
+				}
+				//切换城市的时候渲染医院
+				$(".tch-city").on("change",function(){
+					hospCode();
+				})
+				$(".tch-province").on("change",function(){
+					setTimeout(function(){
+						hospCode();
+					},300)
+					
+				})
+				//搜索医院
+				$(".searchbtn").on("click",function () {
+		            var value = $(".searchinput").val();		            
+		            if(value != ""){
+		            	console.log(value)
+		            	$(".hos_rank").hide();
+		            	$(".hos_name li").each(function () {
+			                $(this).hide();
+			                if ($(this).text().indexOf($.trim(value)) >= 0) {
+			                    $(this).show();
+			                }
+		            	});
+		            }else{
+		            	$(".hos_rank").show();
+		            	$(".hos_name li").show();
+		            }	            
+		       	});	
+		       	//手动添加医院的弹框
+		       	$(".tch-bottom").on("click",function(){
+					layer.closeAll('page');
+					layer.open({
+					    type: 1,
+					    fix: false,
+					    title:"添加医院",
+					    shadeClose: true,
+					    area: ['904px', '399px'],
+					    content: $(".ly-cover")   
+					});
+					sheng();
+					hosbitaldate();
+				});
+				//手动添加医院医院等级
+				function hosbitaldate(){
+					$.post("/testback/clinic/getClinicLevel",function(d){
+						//console.log("医院等级",d);
+						$(".layer-dengji").empty();
+						$(".layer-dengji").attr('data',d.datalist[0].id);
+						$.each(d.datalist,function(i,n){
+							$('<option value="'+n.id+'">'+n.name+'</option>').appendTo(".layer-dengji");
+						})
+					},'json')
+				}
+				//确认添加医院
+				$(".layer-btn").on("click",function(){
+					//console.log("确认添加医院")
+					var name = $(".hospitalname").val();
+					var areacode = $(".layer-sheng").val() || $(".layer-sheng").attr("data");
+					var levelid = $(".layer-dengji").val() ||  $(".layer-dengji").attr("data");
+					console.log(name)
+					if(name==""){
+						alert("请输入医院名称");
+					}else if(!areacode){
+						alert("请选择医院地区");
+					}else if(!levelid){
+						alert("请选择医院等级");
+					}else{
+						$.post("/testback/clinic/addclinic",'info={name:"'+name+'",areacode:"'+areacode+'",levelid:"'+levelid+'"}',function(d){
+							console.log(d);
+							if(d.code=="0"){
+								//var newhos = $(".choosename").val()
+								var clinicid = d.clinic.clinicid;
+								$(".truehospital").val(name);
+								$(".truehospital").attr("clinicid",clinicid);
+								for(var i=0;i<$(".layui-layer-wrap input").length;i++){
+									$(".layui-layer-wrap input").eq(i).val("");
+								}
+								layer.closeAll('page');//关闭弹窗
+							}
+						})
+					}
+				})
+				//选择科室
+				$(".truekes").click(function(){
+					if($(".truehospital").val()!=""){
+						showKeshi();
+						layer.open({
+						    type: 1,
+						    fix: false,
+						    title:"选择科室",
+						    shadeClose: true,
+						    area: ['900px', '620px'],
+						    content: $(".tc-keshi")   
+						})
+					}else{
+						alert("请先选择医院")
+					}
+				});
+				//渲染科室
+				function showKeshi(){
+					var clinicid = $(".truehospital").attr("clinicid");
+					//console.log(clinicid);
+					$.post("/testback/dept/deptByClinic",'info={clinicid:"'+clinicid+'"}',function(d){
+						console.log("科室",d);
+						$(".tck-ctop").empty();
+						$(".tck-ccenterin").empty();
+						$(".peopleaddnewks").empty();
+						if(d.datalist.length<1){
+							$(".peopleaddnewks").removeAttr("deptid")
+						}else{
+						$(".peopleaddnewks").attr("deptid",d.datalist[0].deptid);
+							$.each(d.datalist,function(i,obj){	
+								$(".tck-ctop").append('<li deptid="'+obj.deptid+'">'+obj.name+'</li>');
+								$(".peopleaddnewks").append('<option value="'+obj.deptid+'">'+obj.name+'</option>');
+								$(".tck-ccenterin").append(
+									'<div class="">'+
+										'<div class="keshi_rank" deptid="'+obj.deptid+'">'+obj.name+'</div>'+
+										'<ul class="keshi_name"></ul>'+
+									'</div>'
+								)
+								for(var j=0;j<obj.depts.length;j++){	
+									$(".keshi_name").eq(i).append('<li deptid="'+obj.depts[j].deptid+'">'+obj.depts[j].name+'</li>');
+								}	
+							})
+							$(".peopleaddnewks").on("change",function(){
+								var deptid = $(this).val();
+								console.log(deptid)
+								$(".peopleaddnewks").attr("deptid",deptid);
+							})
+						}
+						changeKeshi();//点击大科室
+						chooseKeshi();//选择科室
+						addNewKeshi();//手动添加科室	
+					})
+				}
+				//点击大科室
+				function changeKeshi(){
+					$(".tck-ctop li").on("click",function(){
+						$(this).addClass('bluecolor').siblings().removeClass("bluecolor");
+						var deptid = $(this).attr("deptid");
+						//console.log(deptid)
+						for(var i=0;i<$(".keshi_rank").length;i++){
+							if(deptid == $(".keshi_rank").eq(i).attr("deptid")){
+								var h = $(".keshi_rank").eq(i).offset().top;
+								var hh = $(".tck-ccenterin").offset().top;
+								var cha = h - hh;
+								console.log(h,hh,cha)
+								$('.tck-ccenter').animate({
+									scrollTop: cha
+								}, 500);
+							}
+						}
+					})
+				}
+				//选择科室
+				function chooseKeshi(){
+					$(".keshi_name li").on("click",function(){
+						$(".truekes").val($(this).text());
+						$(".truekes").attr("deptid",$(this).attr("deptid"));
+						layer.closeAll('page');//点击关闭
+					})	
+				}
+				//手动添加科室
+				function addNewKeshi(){
+					$(".ks_add").unbind().bind("click",function(){
+						layer.closeAll('page');
+						$(".newinput").val("");
+						//var pardeptid = $(this).parents(".keshi_name").siblings().attr("deptid") || "";
+						//alert(pardeptid);
+						layer.open({
+						    type: 1,
+						    fix: false,
+						    title:"添加科室",
+						    shadeClose: true,
+						    area: ['600px', '384px'],
+						    content: $(".addnewkeshi")   
+						})	
+						confirmAddks();
+					})	
+				}
+				//确认添加科室
+				function confirmAddks(){
+					$(".addkeshibtn").unbind().bind("click",function(){
+						if($(".newinput").val()==""){
+							alert("请输入科室")
+						}else{
+							var pardeptid = $(".peopleaddnewks").attr("deptid") ||"";
+							var newksname = $(".newinput").val();
+							var canshu ="";
+							if(pardeptid==""){
+								canshu = 'info={name:"'+newksname+'"}'
+							}else{
+								canshu = 'info={name:"'+newksname+'",parentid:"'+pardeptid+'"}'
+							}
+							$.post("/testback/dept/addDept",canshu,function(d){
+								console.log(d);
+								if(d.code == "0"){//成功
+									var deptid = d.dept.deptid;
+									$(".truekes").attr("deptid",deptid);
+									$(".truekes").val(newksname);
+									layer.closeAll('page');//点击关闭
+								}else if(d.code == "9999"){
+									alert(d.msg);
+								}
+							})// (name:科室名字,parentid:父科室id)
+						}
+					})
+				}
+				//选择工作年限
+				$(".truetime").on("click",function(){
+					layer.open({
+					    type: 1,
+					    fix: false,
+					    title:"选择从业年限",
+					    shadeClose: true,
+					    area: ['400px', '412px'],
+					    content: $(".woketime")   
+					})
+					chooseWokeTime();	
+				})
+				//选择工作年限
+				function chooseWokeTime(){
+					$.post("/testback/NursAndDoctAccount/getWorkYear",function(d){
+						$(".woketime").empty();
+						$.each(d.datalist,function(i,obj){
+							$(".woketime").append('<li id="'+obj.id+'">'+obj.name+'</li>');
+						});
+						$(".woketime li").on("click",function(){
+							$(".truetime").val($(this).text());
+							$(".truetime").attr("id",$(this).attr("id"));
+							layer.closeAll('page');//点击关闭
+						})
+					})
+					
+				}
+				//职称
+				$('.truezhic').on("click",function(){
+					layer.open({
+					    type: 1,
+					    fix: false,
+					    title:"选择职称",
+					    shadeClose: true,
+					    area: ['400px', '208px'],
+					    content: $(".zhicheng")   
+					})
+					$.post("/testback/NursAndDoctAccount/getProfessional",'info={stafftype:"'+stafftype+'"}',function(d){
+						//console.log(d);
+						$(".zhicheng").empty();
+						$.each(d.datalist,function(i,obj){
+							$(".zhicheng").append('<li codeid="'+obj.codeid+'">'+obj.codevalue+'</li>');
+						});
+						$(".zhicheng li").on("click",function(){
+							var text = $(this).text();
+							var codeid = $(this).attr("codeid");
+							$(".truezhic").val(text);
+							$(".truezhic").attr("codeid",codeid);
+							layer.closeAll('page');//点击关闭
+						})
+					})
+				})
+				//点击提交
+				$(".btn").click(function(){
+					var name = $(".truename").val()
+						stafftype = getparam().stafftype,
+						hospital = $(".truehospital").val(),
+						workdate = $(".truetime").attr("id"),
+						keshiname = $(".truekes").val(),
+						worktimey  = $(".truetime").val(),
+						zhichengname = $(".truezhic").val(),
+						deptid = $(".truekes").attr("deptid")||'',//科室id
+						mobile = getparam().telephone,
+						prof = $(".truezhic").attr("codeid"),//职称
+						clinicid = $(".truehospital").attr("clinicid") || '';//诊所id
+						//if(name!="" && hospital!="" && keshiname != "" && worktimey!="" && zhichengname !=""){
+						if(name==""){
+							alert("请填写姓名");
+						}else if(hospital==""){
+							alert("请填写医院")
+						}else if(keshiname==""){
+							alert("请填写科室")
+						}else if(worktimey==""){
+							alert("请填写工作年限")
+						}else if(zhichengname==""){
+							alert("请填写职称")
+						}else{
+							$.post("/testback/NursAndDoctAccount/rstdoctor",'info={name:"'+name+'",stafftype:"'+stafftype+'",hospital:"'+hospital+'",workdate:"'+workdate+'",deptid:"'+deptid+'",mobile:"'+mobile+'",prof:"'+prof+'",clinicid:"'+clinicid+'"}',function(d){
+								//console.log(d);
+								if(d.code=="0"){
+									location.href = "yhdownload.html";
+								}else if(d.code=="10003"){//填写姓名
+									alert(d.msg)
+								}else if(d.code=="10040"){//完善信息
+									alert(d.msg)
+								}else if(d.code=="1"){//用户不存在
+									alert(d.msg)
+								}
+								
+							})
+						}
+					
+					/*{ stafftype:医护类型、
+						name：姓名
+						hospital：医院
+						workdate：从业时间
+						deptid：科室id
+						mobile：注册手机号码
+						prof：职称
+						clinicid:诊所id
+					}*/
+					//location.href = "download.html";
+				})
+			})
+		</script>
+	</body>
+</html>
